@@ -18,13 +18,7 @@ class RandomWalk:
         while len(self.x_values) < self.num_points:
 
             # 决定前进的方向以及沿这个方向前进的距离
-            x_direction = choice([1, -1])
-            x_distance = choice([0, 1, 2, 3, 4])
-            x_step = x_direction * x_distance
-
-            y_direction = choice([1, -1])
-            y_distance = choice([0, 1, 2, 3, 4])
-            y_step = y_direction * y_distance
+            x_step, y_step = self._get_step()
 
             # 拒绝原地踏步
             if x_step == 0 and y_step == 0:
@@ -36,3 +30,15 @@ class RandomWalk:
 
             self.x_values.append(x)
             self.y_values.append(y)
+
+    def _get_step(self):
+        ''''计算前进的方向以及沿着个方向前进的距离'''
+        x_direction = choice([1, -1])
+        x_distance = choice([0, 1, 2, 3, 4])
+        x_step = x_direction * x_distance
+
+        y_direction = choice([1, -1])
+        y_distance = choice([0, 1, 2, 3, 4])
+        y_step = y_direction * y_distance
+
+        return x_step, y_step
