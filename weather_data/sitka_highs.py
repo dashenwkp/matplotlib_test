@@ -10,7 +10,7 @@ lines = path.read_text().splitlines()
 reader = csv.reader(lines)
 header_row = next(reader)
 
-# 提取最高温度
+# 提取日期，最高温度和最低温度
 highs, dates, lows = [], [], []
 for row in reader:
     current_date = datetime.strptime(row[2], '%Y-%m-%d')
@@ -33,5 +33,5 @@ ax.set_xlabel('Date', fontsize=16)
 fig.autofmt_xdate()
 ax.set_ylabel('Temperature (F)', fontsize=16)
 ax.tick_params(labelsize=16)
-
+plt.yticks([0, 25, 50, 75, 100], ['0', '25', '50', '75', '100'])
 plt.show()

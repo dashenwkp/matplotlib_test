@@ -38,5 +38,5 @@ ax.set_xlabel('Date', fontsize=16)
 fig.autofmt_xdate()
 ax.set_ylabel('Temperature (F)', fontsize=16)
 ax.tick_params(labelsize=16)
-
+plt.yticks([0, 25, 50, 75, 100], ['0', '25', '50', '75', '100'])
 plt.show()
